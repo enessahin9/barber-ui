@@ -1,10 +1,39 @@
+import { Appointment } from "./appointment";
 import { BaseTimeStampModel } from "./base/base-time-stamp-model";
-
+import { Claim } from "./claim";
+import { Leave } from "./leave";
+import { UserWorkingRange } from "./user-working-range";
 
 export interface User extends BaseTimeStampModel<number> {
-    firstName: string | null;
-    lastName: string | null;
-    email: string | null;
-    imageUrl: string | null;
+    imageUrl: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+}
+export interface UserWithClaim extends User {
+    claims: Claim[]
+}
+export interface UserWithWorkingRange extends User {
+    workingRanges: UserWorkingRange[]
+}
+export interface UserWithLeave extends User {
+    leaves: Leave[]
 }
 
+export interface UserWithLeaveAndWorkingRange extends User {
+    leaves: Leave[]
+    workingRanges: UserWorkingRange[]
+}
+export interface UserWithAppointment extends User {
+    appointments: Appointment[]
+}
+export interface UserWithAppointmentAndLeaveAndWorkingRange extends User {
+    appointments: Appointment[]
+    leaves: Leave[]
+    workingRanges: UserWorkingRange[]
+}
+//Kullanmayacağız ama örnek olsun diye yazıyoruz
+export interface UserWithWorkingRangeAndClaim extends User {
+    workingRanges: UserWorkingRange[]
+    claims: Claim[]
+}

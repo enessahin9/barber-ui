@@ -5,7 +5,6 @@ import { Injectable } from "@angular/core";
 })
 
 export class TemplateService {
-    private bodyClass: string = '';
 
     addBodyClass(cls: string): TemplateService {
         document.querySelector("body")?.classList.add(cls);
@@ -17,7 +16,7 @@ export class TemplateService {
         return this;
     }
 
-    getBodyClass(): string {
-        return this.bodyClass;
+    getBodyClass(): string | undefined {
+        return document.querySelector("body")?.classList.value
     }
 }

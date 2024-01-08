@@ -13,7 +13,7 @@ export const routes: Routes = [
         path: 'admin', component: AdminComponent, canActivate: [isLoginGuard], children: [
             { path: '', component: AdminHomeComponent },
             { path: 'home', component: AdminHomeComponent },
-            { path: 'user', component: UserComponent },
+            { path: 'user', component: UserComponent }
 
         ]
     }

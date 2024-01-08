@@ -1,4 +1,6 @@
-export interface Appointment {
+import { BaseTimeStampModel } from "./base/base-time-stamp-model";
+
+export interface Appointment extends BaseTimeStampModel<number> {
     userId: number;
     fullName: string | null;
     phoneNumber: string | null;

@@ -1,4 +1,7 @@
-export interface Order {
+import { BaseModel } from "./base/base-model";
+import { Product } from "./product";
+
+export interface Order extends BaseModel<number> {
     fullName: string | null;
     phoneNumber: string | null;
     email: string | null;
@@ -9,5 +12,9 @@ export interface Order {
     canceledUser: number | null;
     isSend: boolean | null;
     isCancel: boolean | null;
+}
 
+export interface OrderWithProduct extends Order {
+    products: Product[]
+    amount: number;
 }
