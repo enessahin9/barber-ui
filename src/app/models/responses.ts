@@ -1,7 +1,7 @@
-export interface Response{
-    message:string;
-    success:boolean;
+export interface Response {
+    message: string;
+    success: boolean;
 }
-export interface DataResponse<T> extends Response{
-    data:T;
+export interface DataResponse<T> extends Response {
+    data: T;
 }

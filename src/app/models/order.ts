@@ -8,12 +8,11 @@ export interface Order extends BaseModel<number> {
     cargoBranch: string | null;
     sendDate: string | null;
     sendCode: string | null;
-    canceledAt: string | null;
-    canceledUser: number | null;
     isSend: boolean | null;
     isCancel: boolean | null;
+    cancelledAt: string | null;
+    cancelledUser: number | null;
 }
-
 export interface OrderWithProduct extends Order {
     products: Product[]
     amount: number;

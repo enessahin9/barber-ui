@@ -1,5 +1,5 @@
 {
-    "home": {
-        "description": "Description text {{name}}"
+    "home":{
+        "description":"Description text {{name}}"
     }
 }

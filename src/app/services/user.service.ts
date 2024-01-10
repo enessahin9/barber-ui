@@ -1,36 +1,33 @@
-
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHandler, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { UserForLoginDto } from "../dtos/user-for-login-dto";
 import { Observable } from "rxjs";
 import { DataResponse } from "../models/responses";
-import { User } from "../models/user";
+import { User, UserWithClaim } from "../models/user";
+import { environment } from "../environments/environment";
 import { UserForUpdateDto } from "../dtos/user-for-update-dto";
 import { UserForCreateDto } from "../dtos/user-for-create-dto";
+@Injectable({providedIn:'root'})
+export class UserService{
+    
+    constructor(private httpClient:HttpClient){}
 
-@Injectable({
-    providedIn: 'root'
-})
-
-export class UserService {
-    constructor(private httpClient: HttpClient) { }
-
-    getAll(): Observable<DataResponse<User[]>> {
-        return this.httpClient.get<DataResponse<User[]>>("http://api.bysalon.com.tr/users/get-all")
+    getAll():Observable<DataResponse<User[]>>{
+        return this.httpClient.get<DataResponse<User[]>>(environment.getApiUrl("/users/get-all"))
     }
-    //TODO return observable boolean dönüceksin
-    addUser(newUser: UserForCreateDto): Observable<UserForCreateDto> {
-        const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-        return this.httpClient.post<UserForCreateDto>("http://api.bysalon.com.tr/users/create", newUser, { headers });
+    getById(userId:number):Observable<DataResponse<User>>{
+        return this.httpClient.get<DataResponse<User>>(environment.getApiUrl("/users/get-by-id/"+userId));
     }
-    updateUser(updateUser: UserForUpdateDto): Observable<UserForUpdateDto> {
-        const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-        return this.httpClient.post<UserForUpdateDto>("http://api.bysalon.com.tr/users/update", updateUser, { headers });
+    getByIdWithClaims(userId:number):Observable<DataResponse<UserWithClaim>>{
+        return this.httpClient.get<DataResponse<UserWithClaim>>(environment.getApiUrl("/users/get-by-id-with-claims/"+userId));
     }
-    deleteUser(user: User) {
-
+    create(userForCreateDto:UserForCreateDto):Observable<Response>{
+        return this.httpClient.post<Response>(environment.getApiUrl("/users/create"),userForCreateDto);
     }
-    userGetById(id: number) {
-
+    update(userForUpdateDto:UserForUpdateDto):Observable<Response>{
+        return this.httpClient.post<Response>(environment.getApiUrl("/users/update"),userForUpdateDto);
     }
-
+    deleteById(userId:number):Observable<Response>{
+        return this.httpClient.delete<Response>(environment.getApiUrl("/users/delete-by-id/"+userId));
+    }
 }

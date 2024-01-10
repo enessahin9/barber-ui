@@ -1,11 +1,12 @@
 import { Appointment } from "./appointment";
+import { BaseModel } from "./base/base-model";
 import { BaseTimeStampModel } from "./base/base-time-stamp-model";
 import { Claim } from "./claim";
 import { Leave } from "./leave";
 import { UserWorkingRange } from "./user-working-range";
 
 export interface User extends BaseTimeStampModel<number> {
-    imageUrl: string;
+    imageUrl: string | null;
     firstName: string;
     lastName: string;
     email: string;

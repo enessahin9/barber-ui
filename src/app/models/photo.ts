@@ -5,5 +5,5 @@ export interface Photo extends BaseModel<number> {
     mediumUrl: string | null;
     largeUrl: string | null;
     isShowSlider: boolean | null;
-    isShowGalery: boolean | null;
+    isShowGallery: boolean | null;
 }
