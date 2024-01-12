@@ -5,6 +5,7 @@ import { DataResponse } from "../../models/responses";
 import { environment } from "../../environments/environment";
 
 @Injectable({ providedIn: 'root' })
+
 export abstract class BaseService<T>{
     path: string = ''
     constructor(private httpClient: HttpClient) { }

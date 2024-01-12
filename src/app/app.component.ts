@@ -9,20 +9,21 @@ import { SharedModule } from './shared.module';
   selector: 'app-root',
   standalone: true,
   imports: [
-    CommonModule, 
+    CommonModule,
     RouterOutlet,
     SharedModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
+
 export class AppComponent implements OnInit {
   title = 'barber';
-  constructor(private ngxUiLoaderService:NgxUiLoaderService){}
+  constructor(private ngxUiLoaderService: NgxUiLoaderService) { }
   ngOnInit(): void {
     this.start();
   }
 
-  start(){
+  start() {
   }
 }

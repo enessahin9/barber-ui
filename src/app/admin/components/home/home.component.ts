@@ -9,7 +9,7 @@ import { AuthService } from '../../../services/auth.service';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
-  constructor() { }
+  constructor(){}
   ngOnInit(): void {
   }
 }

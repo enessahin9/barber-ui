@@ -6,6 +6,7 @@ import { DataTablesModule } from 'angular-datatables';
 import { UserUpdateComponent } from './user-update/user-update.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { RouterLink } from '@angular/router';
+
 @Component({
   selector: 'app-user',
   standalone: true,
@@ -13,6 +14,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
 })
+
 export class UserComponent implements OnInit {
   users: User[] = []
   selectedUser!: User
